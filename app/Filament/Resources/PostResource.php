@@ -47,8 +47,7 @@ class PostResource extends Resource
                         ->required(),
                     Forms\Components\Toggle::make('active')
                         ->required(),
-                    Forms\Components\DateTimePicker::make('published_at')
-                        ->required(),
+                    Forms\Components\DateTimePicker::make('published_at'),
 
                 ])->columnSpan(8),
 
@@ -70,16 +69,11 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title'),
-                Tables\Columns\TextColumn::make('slug'),
-                Tables\Columns\TextColumn::make('thumbnail'),
-                Tables\Columns\TextColumn::make('body'),
+                Tables\Columns\ImageColumn::make('thumbnail'),
+                Tables\Columns\TextColumn::make('title'),                
                 Tables\Columns\IconColumn::make('active')
                     ->boolean(),
                 Tables\Columns\TextColumn::make('published_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('user_id'),
-                Tables\Columns\TextColumn::make('created_at')
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime(),
